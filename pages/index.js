@@ -9,7 +9,7 @@ export default function Home() {
       <div id="main-container" className="mx-auto max-w-[1200px]">
         <Topbar />
 
-        <div className="flex flex-col md:flex-row w-full space-x-10 ">
+        <div className="flex flex-col md:flex-row w-full space-x-10 justify-center">
           {/* Overview Card */}
           <WeatherOverviewWidget
             temperature={40}
@@ -18,12 +18,10 @@ export default function Home() {
             date={'12/24/22'}
           />
 
-          <div className=" w-2/3 ">
+          <div className="w-full md:w-2/3">
             <ForecastWidget />
 
-            <div className="flex flex-row w-full space-x-10 border border-blue-500">
-              <OtherCities />
-            </div>
+            <OtherCities />
           </div>
         </div>
       </div>
