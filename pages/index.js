@@ -1,5 +1,7 @@
+import ForecastWidget from '@/components/widgets/ForecastWidget';
 import Topbar from '../components/Topbar';
 import WeatherOverviewWidget from '../components/widgets/WeatherOverviewWidget';
+import OtherCities from '@/components/widgets/OtherCities';
 
 export default function Home() {
   return (
@@ -7,7 +9,7 @@ export default function Home() {
       <div id="main-container" className="mx-auto max-w-[1200px]">
         <Topbar />
 
-        <div className="flex flex-row w-full space-x-10 h-[300px]">
+        <div className="flex flex-row w-full space-x-10">
           {/* Overview Card */}
           <WeatherOverviewWidget
             temperature={40}
@@ -16,7 +18,13 @@ export default function Home() {
             date={'12/24/22'}
           />
 
-          <div className="border border-red-500 w-2/3 ">world</div>
+          <div className=" w-2/3 ">
+            <ForecastWidget />
+
+            <div className="flex flex-row w-full space-x-10 border border-blue-500">
+              <OtherCities />
+            </div>
+          </div>
         </div>
       </div>
     </main>

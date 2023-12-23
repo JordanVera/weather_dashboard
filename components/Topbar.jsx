@@ -1,29 +1,30 @@
-import { useEffect, useState } from 'react';
-import WeatherService from '../services/WeatherService';
+import { useContext, useState } from 'react';
+import { WeatherContext } from '@/context/WeatherContext';
 import { Input, Avatar } from '@material-tailwind/react';
-// import SearchIcon from '@mui/icons-material/Search';
 
 const Topbar = () => {
-  useEffect(() => {
-    const weatherData = async () => {
-      const currentWeatherData = await WeatherService.getCurrentWeatherData();
-      const forecastWeatherData = await WeatherService.getForecastWeatherData();
+  const [search, setSearch] = useState(''); // State to hold the search input
+  const { updateWeatherData } = useContext(WeatherContext); // Function from context to update weather
 
-      console.log('WEATHER DATA');
-      console.log(currentWeatherData);
-      console.log('FORECAST DATA');
-      console.log(forecastWeatherData);
-    };
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
 
-    weatherData();
-  }, []);
+  const handleSearchSubmit = () => {
+    updateWeatherData(search); // Call function from context with the search value
+  };
 
   return (
-    <div className="flex flex-row  justify-between w-full my-6">
+    <div className="flex flex-row justify-between w-full my-6">
       <div className="w-72">
-        <Input color="white" label="Search City" />
+        <Input
+          color="white"
+          label="Search City"
+          value={search}
+          onChange={handleSearchChange}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearchSubmit()} // Trigger search on Enter key
+        />
       </div>
-
       <Avatar
         src="https://docs.material-tailwind.com/img/face-2.jpg"
         alt="avatar"
