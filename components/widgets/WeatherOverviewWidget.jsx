@@ -2,12 +2,18 @@ import React, { useContext, useEffect } from 'react';
 import { WeatherContext } from '@/context/WeatherContext';
 import SunriesIcon from '../icons/SunriesIcon';
 import SunsetIcon from '../icons/SunsetIcon';
+import MoonPhaseWidget from './MoonPhaseWidget';
 // import { MapPinIcon, CalendarDaysIcon } from '@heroicons/react/16/solid';
 // import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 
-const WeatherOverviewWidget = ({ temperature, condition, location, date }) => {
+const WeatherOverviewWidget = () => {
   const { currentWeather, forecastWeather, isLoading, error } =
     useContext(WeatherContext);
+
+  useEffect(() => {
+    console.log('CURRENT');
+    console.log(currentWeather);
+  }, [currentWeather]);
 
   if (isLoading) return <div>Loading weather data...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -80,13 +86,15 @@ const WeatherOverviewWidget = ({ temperature, condition, location, date }) => {
         </h3>
       </div>
       {/* Sunset */}
-      <div className="bg-[#1d1e20] rounded-xl px-3 py-2">
+      <div className="bg-[#1d1e20] rounded-xl px-3 py-2 mb-5">
         <SunsetIcon />
         <h4 className="text-md text-gray-500">Sunset</h4>
         <h3 className="text-2xl text-white">
           {forecastWeather.forecast.forecastday[0].astro.sunset}
         </h3>
       </div>
+
+      <MoonPhaseWidget />
     </div>
   );
 };

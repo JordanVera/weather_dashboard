@@ -5,11 +5,6 @@ import { getDayOfWeek } from '@/utils/dates';
 const ForecastWidget = () => {
   const { forecastWeather, isLoading, error } = useContext(WeatherContext);
 
-  useEffect(() => {
-    console.log('FORECAST');
-    console.log(forecastWeather);
-  }, [forecastWeather]);
-
   if (isLoading) return <div>Loading weather data...</div>;
   if (error) return <div>Error: {error}</div>;
 
