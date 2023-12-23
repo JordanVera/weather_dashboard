@@ -2,6 +2,7 @@ import ForecastWidget from '@/components/widgets/ForecastWidget';
 import Topbar from '../components/Topbar';
 import WeatherOverviewWidget from '../components/widgets/WeatherOverviewWidget';
 import OtherCities from '@/components/widgets/OtherCities';
+import MoonPhaseWidget from '@/components/widgets/MoonPhaseWidget';
 
 export default function Home() {
   return (
@@ -21,7 +22,11 @@ export default function Home() {
           <div className="w-full md:w-2/3">
             <ForecastWidget />
 
-            <OtherCities />
+            <div className="flex flex-row w-full space-x-10">
+              <OtherCities />
+
+              <MoonPhaseWidget />
+            </div>
           </div>
         </div>
       </div>
