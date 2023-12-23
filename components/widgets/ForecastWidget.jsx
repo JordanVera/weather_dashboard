@@ -14,7 +14,7 @@ const ForecastWidget = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="h-1/2 bg-gradient-to-bl from-[#1d1e20] to-black rounded-2xl  p-5 mb-8">
+    <div className="h-1/2 bg-gradient-to-bl from-[#1d1e20] to-[#030405] rounded-2xl  p-5 mb-8">
       <div className="flex flex-row justify-between mb-20">
         <button className="rounded-full bg-white text-black text-sm py-1 px-2 capitalize">
           weather advisor

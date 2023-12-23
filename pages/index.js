@@ -9,7 +9,7 @@ export default function Home() {
       <div id="main-container" className="mx-auto max-w-[1200px]">
         <Topbar />
 
-        <div className="flex flex-row w-full space-x-10">
+        <div className="flex flex-col md:flex-row w-full space-x-10 ">
           {/* Overview Card */}
           <WeatherOverviewWidget
             temperature={40}

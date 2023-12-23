@@ -21,8 +21,8 @@ const OtherCities = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className=" w-3/4">
-      <div className="flex flex-row w-full space-x-6  mb-5">
+    <div className=" w-3/4 space-y-5">
+      <div className="flex flex-row w-full space-x-6">
         <div className="bg-[#1d1e20] w-full rounded-2xl p-3  ">
           <CityCard weatherData={newyorkWeather} />
         </div>
@@ -31,7 +31,7 @@ const OtherCities = () => {
           <CityCard weatherData={losAngelesWeather} />
         </div>
       </div>
-      <div className="flex flex-row w-full space-x-6  mb-5">
+      <div className="flex flex-row w-full space-x-6">
         <div className="bg-[#1d1e20] w-full rounded-2xl p-3  ">
           <CityCard weatherData={chicagoWeather} />
         </div>
