@@ -15,7 +15,6 @@ const WeatherOverviewWidget = () => {
     console.log(currentWeather);
   }, [currentWeather]);
 
-  if (isLoading) return <div>Loading weather data...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -23,7 +22,7 @@ const WeatherOverviewWidget = () => {
       <div className="h-full flex flex-col justify-between">
         <div className="flex flex-row justify-between w-full mb-6">
           <button className="rounded-full bg-white text-black text-sm py-1 px-2">
-            {currentWeather.location.name}, {currentWeather.location.region}
+            {currentWeather?.location?.name}, {currentWeather?.location?.region}
           </button>
           <button className="text-white text-xs">
             {new Date().toLocaleTimeString([], {
@@ -37,18 +36,18 @@ const WeatherOverviewWidget = () => {
           {/* CONDITION */}
           <div className="flex flex-row items-center">
             <img
-              src={currentWeather.current.condition.icon}
+              src={currentWeather?.current?.condition.icon}
               alt=""
               className="mr-2"
             />
             <p className="text-gray-500">
-              {currentWeather.current.condition.text}
+              {currentWeather?.current?.condition.text}
             </p>
           </div>
 
           <div className="flex flex-row">
             <h4 className="self-bottom text-7xl ml-0 items-center">
-              {currentWeather.current.temp_f}
+              {currentWeather?.current?.temp_f}
             </h4>
 
             <p>&deg; F</p>
@@ -60,19 +59,19 @@ const WeatherOverviewWidget = () => {
         <div className="w-1/3  text-center">
           <h4 className="text-sm text-gray-500">Pressure</h4>
           <h3 className="text-2xl text-white">
-            {currentWeather.current.pressure_mb}mb
+            {currentWeather?.current?.pressure_mb}mb
           </h3>
         </div>
         <div className="w-1/3 text-center">
           <h4 className="text-sm text-gray-500">Humidity</h4>
           <h3 className="text-2xl text-white">
-            {currentWeather.current.humidity}%
+            {currentWeather?.current?.humidity}%
           </h3>
         </div>
         <div className="w-1/3 text-center">
           <h4 className="text-sm text-gray-500">Visibility</h4>
           <h3 className="text-2xl text-white">
-            {currentWeather.current.vis_miles} mi
+            {currentWeather?.current?.vis_miles} mi
           </h3>
         </div>
       </div>
@@ -82,7 +81,7 @@ const WeatherOverviewWidget = () => {
         <SunriesIcon />
         <h4 className="text-md text-gray-500">Sunrise</h4>
         <h3 className="text-2xl text-white">
-          {forecastWeather.forecast.forecastday[0].astro.sunrise}
+          {forecastWeather?.forecast?.forecastday[0]?.astro?.sunrise}
         </h3>
       </div>
       {/* Sunset */}
@@ -90,7 +89,7 @@ const WeatherOverviewWidget = () => {
         <SunsetIcon />
         <h4 className="text-md text-gray-500">Sunset</h4>
         <h3 className="text-2xl text-white">
-          {forecastWeather.forecast.forecastday[0].astro.sunset}
+          {forecastWeather?.forecast?.forecastday[0]?.astro?.sunset}
         </h3>
       </div>
 

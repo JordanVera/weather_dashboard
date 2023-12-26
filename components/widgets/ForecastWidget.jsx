@@ -5,7 +5,6 @@ import { getDayOfWeek } from '@/utils/dates';
 const ForecastWidget = () => {
   const { forecastWeather, isLoading, error } = useContext(WeatherContext);
 
-  if (isLoading) return <div>Loading weather data...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -20,7 +19,7 @@ const ForecastWidget = () => {
       </div>
 
       <div className="flex flex-col md:flex-row w-full">
-        {forecastWeather.forecast.forecastday.map((day) => (
+        {forecastWeather?.forecast?.forecastday?.map((day) => (
           <div key={day.date} className="w-full flex flex-col items-center">
             <h4 className="text-gray-500 mb-2">
               {getDayOfWeek(day.date_epoch)}
