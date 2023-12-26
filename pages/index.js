@@ -22,7 +22,7 @@ export default function Home() {
           {/* Overview Card */}
           <WeatherOverviewWidget />
 
-          <div className="w-full md:w-2/3">
+          <div className="w-full md:w-2/3 flex-grow">
             <ForecastWidget />
 
             <div className="flex flex-row w-full space-x-5 items-stretch">

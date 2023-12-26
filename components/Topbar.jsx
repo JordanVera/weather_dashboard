@@ -9,16 +9,31 @@ const Topbar = () => {
   const { updateWeatherData } = useContext(WeatherContext); // Function from context to update weather
 
   const handleSearchChange = async (e) => {
-    setSearch(e.target.value);
-    const weatherData = await WeatherService.getAutocompleteData(
-      e.target.value
-    );
+    const query = e.target.value;
+    setSearch(query);
 
-    setAutocompleteData(weatherData); // Update the autocomplete data
+    if (query.trim() === '') {
+      setAutocompleteData([]); // Clear the autocomplete data if the search query is empty
+      return; // Exit the function early
+    }
+
+    try {
+      const weatherData = await WeatherService.getAutocompleteData(query);
+      setAutocompleteData(weatherData); // Update the autocomplete data
+    } catch (error) {
+      console.error('Error fetching autocomplete data:', error);
+      setAutocompleteData([]); // Optionally clear or handle the autocomplete data in case of error
+    }
   };
 
   const handleSearchSubmit = () => {
     updateWeatherData(search); // Call function from context with the search value
+  };
+
+  const handleAutocompleteClick = (cityName) => {
+    // Update the search state and the weather data
+    setSearch(cityName);
+    updateWeatherData(cityName);
   };
 
   useEffect(() => {
@@ -32,10 +47,11 @@ const Topbar = () => {
       <div className="w-72 relative">
         <Input
           color="white"
+          className="bg-gray-800 border border-red-800"
           label="Search City"
           value={search}
           onChange={handleSearchChange}
-          onKeyDown={(e) => e.key === 'Enter' && handleSearchSubmit()} // Trigger search on Enter key
+          onKeyDown={(e) => e.key === 'Enter' && handleSearchSubmit()}
         />
 
         {autocompleteData.length > 0 ? (
@@ -50,9 +66,13 @@ const Topbar = () => {
               //     break;
               // }
 
-              <div key={item.id}>
+              <button
+                key={item.id}
+                onClick={() => handleAutocompleteClick(item.name)}
+                className="hover:bg-gray-800 rounded-xl w-full py-1.5  px-1 text-left"
+              >
                 {item.name}, {item.region}
-              </div>
+              </button>
             ))}
           </div>
         ) : null}
