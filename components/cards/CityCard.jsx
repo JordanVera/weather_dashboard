@@ -3,7 +3,7 @@ const CityCard = ({ weatherData }) => {
     <div className="flex-row flex justify-between items-center">
       <div>
         <h2 className="text-gray-500 text-xl">{weatherData?.location?.name}</h2>
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-gray-500 text-left">
           {weatherData?.current?.condition?.text}
         </p>
       </div>
