@@ -57,6 +57,7 @@ export const WeatherProvider = ({ children }) => {
     <WeatherContext.Provider
       value={{
         currentWeather,
+        setCurrentWeather,
         forecastWeather,
         newyorkWeather,
         losAngelesWeather,
