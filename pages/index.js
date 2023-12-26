@@ -11,7 +11,7 @@ import { Loader } from '@/components/Loader';
 export default function Home() {
   const { isLoading } = useContext(WeatherContext);
 
-  if (isLoading) return <Loader />;
+  // if (isLoading) return <Loader />;
 
   return (
     <main className="w-screen bg-black min-h-[100vw]">

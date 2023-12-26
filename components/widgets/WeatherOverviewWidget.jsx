@@ -17,8 +17,12 @@ const WeatherOverviewWidget = () => {
 
   if (error) return <div>Error: {error}</div>;
 
+  if (isLoading) return <div>Loading...</div>;
+
   return (
-    <div className="flex text-white flex-col bg-gradient-to-b from-[#1d1e20] to-black w-full md:w-1/4 rounded-2xl h-full  p-5">
+    <div
+      className={`flex text-white flex-col bg-gradient-to-b from-[#1d1e20] to-black w-full md:w-1/4 rounded-2xl h-full  p-5 `}
+    >
       <div className="h-full flex flex-col justify-between">
         <div className="flex flex-row justify-between w-full mb-6">
           <button className="rounded-full bg-white text-black text-sm py-1 px-2">
