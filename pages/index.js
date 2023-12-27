@@ -33,7 +33,6 @@ export default function Home() {
 
             <div className="flex flex-row w-full space-x-5 items-stretch mb-8">
               <OtherCities />
-
               <NewsletterSignup />
             </div>
 

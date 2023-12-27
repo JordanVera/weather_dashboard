@@ -16,35 +16,43 @@ const OtherCities = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="flex flex-col h-full my-auto w-3/4 space-y-5 ">
-      <div className="flex flex-row w-full space-x-6 items-stretch">
+    <div className="flex flex-col w-3/4 space-y-5 h-stretch">
+      <div className="flex flex-row w-full space-x-6 items-stretch h-1/2">
         <button
           className="bg-[#1d1e20] w-full rounded-2xl p-3 hover:bg-gray-800"
           onClick={() => updateWeatherData('New York')}
         >
-          <CityCard weatherData={newyorkWeather} />
+          <div className="flex flex-col h-full">
+            <CityCard weatherData={newyorkWeather} />
+          </div>
         </button>
 
         <button
           className="bg-[#1d1e20] w-full rounded-2xl py-2 px-3 hover:bg-gray-800"
           onClick={() => updateWeatherData('Los Angeles')}
         >
-          <CityCard weatherData={losAngelesWeather} />
+          <div className="flex flex-col h-full">
+            <CityCard weatherData={losAngelesWeather} />
+          </div>
         </button>
       </div>
-      <div className="flex flex-row w-full space-x-6">
+      <div className="flex flex-row w-full space-x-6 items-stretch h-1/2">
         <button
           className="bg-[#1d1e20] w-full rounded-2xl p-3 hover:bg-gray-800"
           onClick={() => updateWeatherData('Chicago')}
         >
-          <CityCard weatherData={chicagoWeather} />
+          <div className="flex flex-col h-full">
+            <CityCard weatherData={chicagoWeather} />
+          </div>
         </button>
 
         <button
           className="bg-[#1d1e20] w-full rounded-2xl py-2 px-3 hover:bg-gray-800"
           onClick={() => updateWeatherData('Atlanta')}
         >
-          <CityCard weatherData={atlantaWeather} />
+          <div className="flex flex-col h-full">
+            <CityCard weatherData={atlantaWeather} />
+          </div>
         </button>
       </div>
     </div>
