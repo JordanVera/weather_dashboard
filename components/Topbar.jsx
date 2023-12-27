@@ -47,8 +47,8 @@ const Topbar = () => {
       <div className="w-72 relative">
         <Input
           color="white"
-          className="bg-gray-800 border border-red-800"
-          label="Search City"
+          style={{ backgroundColor: '#1d1e20' }}
+          label="Search City..."
           value={search}
           onChange={handleSearchChange}
           onKeyDown={(e) => e.key === 'Enter' && handleSearchSubmit()}

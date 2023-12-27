@@ -8,6 +8,7 @@ export const WeatherProvider = ({ children }) => {
   const [forecastWeather, setForecastWeather] = useState(null);
   const [newyorkWeather, setNewyorkWeather] = useState(null);
   const [losAngelesWeather, setLosAngelesWeather] = useState(null);
+  const [astroData, setAstroData] = useState(null);
   const [chicagoWeather, setChicagoWeather] = useState(null);
   const [atlantaWeather, setAtlantaWeather] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,7 @@ export const WeatherProvider = ({ children }) => {
 
       setCurrentWeather(currentWeatherData);
       setForecastWeather(forecastWeatherData);
+      setAstroData(forecastWeatherData.forecast.forecastday[0].astro);
       setNewyorkWeather(newyorkWeatherData);
       setLosAngelesWeather(losangelesWeatherData);
       setChicagoWeather(chicagoWeatherData);
@@ -59,6 +61,7 @@ export const WeatherProvider = ({ children }) => {
         currentWeather,
         setCurrentWeather,
         forecastWeather,
+        astroData,
         newyorkWeather,
         losAngelesWeather,
         chicagoWeather,

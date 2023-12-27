@@ -7,21 +7,18 @@ import MoonPhaseWidget from './MoonPhaseWidget';
 // import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 
 const WeatherOverviewWidget = () => {
-  const { currentWeather, forecastWeather, isLoading, error } =
-    useContext(WeatherContext);
+  const { currentWeather, forecastWeather, error } = useContext(WeatherContext);
 
-  useEffect(() => {
-    console.log('CURRENT');
-    console.log(currentWeather);
-  }, [currentWeather]);
+  // useEffect(() => {
+  //   console.log('CURRENT');
+  //   console.log(currentWeather);
+  // }, [currentWeather]);
 
   if (error) return <div>Error: {error}</div>;
 
-  if (isLoading) return <div>Loading...</div>;
-
   return (
     <div
-      className={`flex text-white flex-col bg-gradient-to-b from-[#1d1e20] to-black w-full md:w-1/4 rounded-2xl h-full  p-5 `}
+      className={`flex text-white flex-col bg-gradient-to-b from-[#1d1e20] to-black w-full lg:w-1/4 rounded-2xl h-full  p-5`}
     >
       <div className="h-full flex flex-col justify-between">
         <div className="flex flex-row justify-between w-full mb-6">

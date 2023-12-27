@@ -1,5 +1,12 @@
-// import { BoxesLoader } from 'react-awesome-loaders';
+import SyncLoader from 'react-spinners/SyncLoader';
 
 export const Loader = () => {
-  return <h2 className="text-3xl text-white">LOADING CUHHH</h2>;
+  return (
+    <SyncLoader
+      size={30}
+      aria-label="Loading Spinner"
+      data-testid="loader"
+      color="#fff777"
+    />
+  );
 };

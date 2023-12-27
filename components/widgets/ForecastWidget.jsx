@@ -5,6 +5,10 @@ import { getDayOfWeek } from '@/utils/dates';
 const ForecastWidget = () => {
   const { forecastWeather, isLoading, error } = useContext(WeatherContext);
 
+  useEffect(() => {
+    console.log(forecastWeather);
+  }, [forecastWeather]);
+
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -18,7 +22,7 @@ const ForecastWidget = () => {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row w-full">
+      <div className="flex flex-col lg:flex-row w-full">
         {forecastWeather?.forecast?.forecastday?.map((day) => (
           <div key={day.date} className="w-full flex flex-col items-center">
             <h4 className="text-gray-500 mb-2">
