@@ -57,11 +57,10 @@ const Topbar = () => {
         {autocompleteData.length > 0 ? (
           <div className="absolute z-10 mt-1 p-2 rounded shadow border bg-black border-gray-700 w-full">
             {autocompleteData?.map((item) => (
+              //  TODO : create a switch statement to handle the different types of weather
               // switch (item.name) {
               //   case value:
-
               //     break;
-
               //   default:
               //     break;
               // }
