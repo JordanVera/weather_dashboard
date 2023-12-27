@@ -31,7 +31,7 @@ export default function Home() {
           <div className="w-full lg:w-2/3 flex-grow">
             <ForecastWidget />
 
-            <div className="flex flex-row w-full space-x-5 items-stretch mb-8">
+            <div className="flex flex-row w-full space-x-5 items-stretch mb-10">
               <OtherCities />
               <NewsletterSignup />
             </div>
